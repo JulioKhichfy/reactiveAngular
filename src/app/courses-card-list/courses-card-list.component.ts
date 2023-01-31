@@ -15,8 +15,8 @@ export class CoursesCardListComponent implements OnInit{
   @Input()
   courses: Course[] = [];
 
-  @Output()
-  private coursesChanged = new EventEmitter();
+  /*@Output()
+  private coursesChanged = new EventEmitter();*/
 
   constructor(private dialog: MatDialog){
     
@@ -38,12 +38,12 @@ export class CoursesCardListComponent implements OnInit{
 
     const dialogRef = this.dialog.open(CourseDialogComponent, dialogConfig);
 
-    dialogRef.afterClosed()
+    /*dialogRef.afterClosed()
       .pipe(
         filter(val => !!val),
         tap(()=>this.coursesChanged.emit())
       )
-      .subscribe();
+      .subscribe();*/
   }
 
 }
