@@ -1,8 +1,12 @@
 import {Component, OnInit} from '@angular/core';
+import { Observable } from 'rxjs';
+import { filter, map, tap } from 'rxjs/operators';
 import { LoadingService } from './loading/loading.service';
 import { MessagesService } from './messages/messages.service';
+import { User } from './model/user';
+import { AuthStore } from './services/auth.store';
 
-
+const AUTH_DATA = "auth_data";
 
 @Component({
   selector: 'app-root',
@@ -15,17 +19,21 @@ import { MessagesService } from './messages/messages.service';
 })
 export class AppComponent implements  OnInit {
 
-    constructor() {
+    user:User = undefined
+    constructor(public auth: AuthStore) {
 
     }
 
     ngOnInit() {
-
-
+      
+      this.auth.user$.subscribe(
+        res => console.log(res)
+      )
     }
 
   logout() {
-
+    this.auth.logout();
+   
   }
 
 }
