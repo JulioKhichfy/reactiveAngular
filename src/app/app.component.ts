@@ -19,23 +19,12 @@ const AUTH_DATA = "auth_data";
 })
 export class AppComponent implements  OnInit {
 
-    user:User = undefined
     constructor(public auth: AuthStore) {
 
     }
 
     ngOnInit() {
       
-      this.auth.user$.subscribe(
-        res => {
-          if(res)
-            this.user = res;
-          else
-            this.user = undefined
-
-          console.log(this.user);
-        }
-      )
     }
 
   logout() {

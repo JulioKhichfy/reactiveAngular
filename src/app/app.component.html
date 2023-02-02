@@ -47,7 +47,9 @@
 
       <div class="filler"></div>
       
-      <span *ngIf="user"><input type="text" [(ngModel)]="user.email"></span>
+      <span *ngIf="(auth.user$ | async) as user">
+        {{user.email}}
+      </span>
      
     </div>
 
